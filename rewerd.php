@@ -1,10 +1,5 @@
 <?php
 
-
-
-
-
-
 add_action('woocommerce_product_options_general_product_data', function() {
 	?><?php
  /*woocommerce_wp_checkbox([
@@ -43,10 +38,6 @@ add_action('woocommerce_process_product_meta', function($post_id) {
 });
 
 
-
-
-
-
 /*check Total no of product*/
   
 add_action( 'woocommerce_single_product_summary', 'bbloomer_product_sold_count', 11 );
@@ -80,9 +71,6 @@ function update_product_total_sales_on_cancelled_orders( $order_id, $old_status,
 }
 
 
-
-
-
 add_filter( 'wc_points_rewards_action_settings', 'wdm_points_rewards_first_product_settings' );
 
 function wdm_points_rewards_first_product_settings( $settings ) {
@@ -95,9 +83,6 @@ function wdm_points_rewards_first_product_settings( $settings ) {
 
 	return $settings;
 }
-
-
-
 
 
 add_filter( 'wc_points_rewards_event_description', 'add_points_rewards_newsletter_action_event_description', 10, 3 );
@@ -118,60 +103,6 @@ function add_points_rewards_newsletter_action_event_description( $event_descript
 
 	return $event_description;
 }
-
-
-
-/*
-//this is for testing purposes
-function my_cron_schedules($schedules){
-	if(!isset($schedules["1min"])){
-		$schedules["1min"] = array(
-			'interval' => 60,
-			'display' => __('Once a minute'));
-	}
-	
-	return $schedules;
-	}
-	add_filter('cron_schedules','my_cron_schedules');
-	
-	if ( ! wp_next_scheduled( 'my_scheduled_event' ) ) { wp_schedule_event( 
-	strtotime( '2019-01-04 19:39:00' ), '1min', 'my_scheduled_event' ); }
-	
-	add_action( 'my_scheduled_event', 'update_ratings' );
-	
-	function update_ratings() { 
-		//$to = 'hardik.savaliya@shivlab.com';
-		$subject = 'The subject';
-		$body = 'The email body content';
-		$headers = array('Content-Type: text/html; charset=UTF-8','From: My Site Name <support@example.com>');
-		 
-		wp_mail( $to, $subject, $body, $headers );
-	} 
-
-	function mysite_woocommerce_order_status_completed( $order_id ) {
-		//$styles = 'stuff';
-		$to = 'hardik.savaliya@shivlab.com';
-		$subject = 'The subject';
-		$body = "'Order complete for order '.$order_id.'";
-		$headers = array('Content-Type: text/html; charset=UTF-8','From: My Site Name <support@example.com>');
-		 
-		wp_mail( $to, $subject, $body, $headers );
-		//error_log( "Order complete for order $order_id", 0 );
-	}
-	add_action( 'woocommerce_order_status_completed', 'mysite_woocommerce_order_status_completed', 10, 1 );
-*/
-
-
-
-/*
-add_action("admin_menu", "addMenu");
-
-function addMenu() {
-    add_menu_page("My New Menu", "My New Menu", "edit_posts",
-        "mynewmenu", "after_product_sale_reword", null, 1);
-} */
-
-
 
 
 
